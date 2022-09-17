@@ -1,0 +1,33 @@
+.navbar {
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  height: 10vh;
+
+  .logo {
+    width: 20%;
+    font-size: 4rem;
+    font-weight: 600;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+
+    .nav-link {
+      padding: 0 2rem;
+      color: #f1f5f9;
+      font-size: 1.8rem;
+      text-decoration: none;
+    }
+
+    .search {
+      width: 50rem;
+      padding: 1.25rem 2rem;
+      margin-left: 10px;
+      font-size: 1.6rem;
+      border-radius: 5px;
+      border: none;
+    }
+  }
+}
