@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./homepage.styles.scss";
 
-const Homepage = () => {
-  let API_KEY = `http://www.omdbapi.com/?s=star wars&apikey=e68b2270`;
+// components
+import MovieDirectory from "../components/movie-directory/movie-directory.component";
+
+const Homepage = ({ fav, setFav, searchValue }) => {
+  let API_KEY = `http://www.omdbapi.com/?s=${searchValue}&apikey=e68b2270`;
   const [movies, setMovies] = useState([]);
 
   const fetchApi = () => {
@@ -13,22 +16,13 @@ const Homepage = () => {
 
   useEffect(() => {
     fetchApi();
-  }, []);
+  }, [searchValue]);
 
   return (
     <div className="homepage">
-      <div className="movie-list">
-        {movies.map((movie, indx) => (
-          <div key={indx} className="movie">
-            <div
-              className="bg"
-              style={{ backgroundImage: `url(${movie.Poster})` }}
-            ></div>
-            <div className="title">{movie.Title}</div>
-            <div className="published-year">{movie.Year}</div>
-          </div>
-        ))}
-      </div>
+      <MovieDirectory movies={movies} fav={fav} setFav={setFav} />
+      {/* FAVOURITE SECTION */}
+      {fav ? <MovieDirectory movies={fav} /> : ""}
     </div>
   );
 };
