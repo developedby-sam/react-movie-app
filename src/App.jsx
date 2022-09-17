@@ -3,7 +3,8 @@ import { Routes, Route } from "react-router-dom";
 
 // COMPONENTS
 import Navbar from "./components/navbar/navbar.component";
-import Homepage from "./pages/homepage.component";
+import Homepage from "./pages/homepage/homepage.component";
+import Favouritepage from "./pages/favouritepage/favouritepage.component";
 
 function App() {
   const [fav, setFav] = useState([]);
@@ -25,6 +26,7 @@ function App() {
             />
           }
         />
+        <Route path="/favourite" element={<Favouritepage fav={fav} />} />
       </Routes>
     </div>
   );

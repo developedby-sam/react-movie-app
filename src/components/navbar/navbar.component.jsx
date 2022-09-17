@@ -7,11 +7,15 @@ const Navbar = ({ searchValue, setSearchValue }) => {
     const movieSearched = e.target.value;
     setSearchValue(movieSearched);
   };
+
+  const handleClick = () => {
+    setSearchValue("star wars");
+  };
   return (
     <div className="navbar">
       <div className="logo">Equiflix</div>
       <div className="nav-links">
-        <Link to="/" className="nav-link">
+        <Link to="/" className="nav-link" onClick={handleClick}>
           Home
         </Link>
         <Link to="/favourite" className="nav-link">
