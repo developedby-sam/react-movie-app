@@ -4,12 +4,14 @@ import "./movie.styles.scss";
 const Movie = ({ movie, fav, setFav, isFavSection }) => {
   const { Title, Poster, Year } = movie;
 
+  // Handler for adding movies to the favourite list
   const handleAddMovie = (movie) => {
     const newFav = fav.filter((movieItem) => movieItem.Title !== movie.Title);
     setFav([...newFav, movie]);
     localStorage.setItem("fav", JSON.stringify([...newFav, movie]));
   };
 
+  // Handler fucntion for removing movies from the favourite list
   const handleRemoveMovie = (movie) => {
     const newFav = fav.filter((movieItem) => movieItem.Title !== movie.Title);
     setFav([...newFav]);
@@ -30,6 +32,7 @@ const Movie = ({ movie, fav, setFav, isFavSection }) => {
           }
         }}
       >
+        {/* Change the label of the function based on the section */}
         {isFavSection ? (
           <span>Remove from favourite&nbsp;❤️</span>
         ) : (

@@ -21,6 +21,7 @@ function App() {
     <div className="App">
       <Navbar searchValue={searchValue} setSearchValue={setSearchValue} />
       <Routes>
+        {/* Route for the favourite page */}
         <Route
           exact
           path="/"
@@ -33,6 +34,7 @@ function App() {
             />
           }
         />
+        {/* Route for the favourite page */}
         <Route
           path="/favourite"
           element={<Favouritepage fav={fav} setFav={setFav} />}
