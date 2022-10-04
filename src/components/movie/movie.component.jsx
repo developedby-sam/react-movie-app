@@ -9,13 +9,16 @@ const Movie = ({ movie, fav, setFav }) => {
   };
 
   return (
-    <div
-      onClick={() => {
-        handleClick(movie);
-      }}
-      className="movie"
-    >
+    <div className="movie">
       <div className="bg" style={{ backgroundImage: `url(${Poster})` }}></div>
+      <button
+        className="btn"
+        onClick={() => {
+          handleClick(movie);
+        }}
+      >
+        Add to favourite&nbsp;❤️
+      </button>
       <div className="title">{Title}</div>
       <div className="published-year">{Year}</div>
     </div>

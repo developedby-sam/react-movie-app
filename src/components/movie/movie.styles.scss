@@ -1,5 +1,6 @@
 .movie {
-  flex: 0 0 400px;
+  position: relative;
+  flex: 0 0 300px;
   height: 550px;
   overflow: hidden;
   cursor: pointer;
@@ -8,22 +9,44 @@
     margin-right: 6rem;
   }
 
+  &:hover {
+    .bg {
+      transform: scale(1.05);
+      opacity: 0.5;
+    }
+    .btn {
+      opacity: 1;
+    }
+  }
+
   .bg {
-    width: 100%;
+    width: 300px;
     height: 450px;
-    background-position: center;
+    background-position: contain;
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
     transition: all 100ms ease-in;
+  }
 
-    &:hover {
-      transform: scale(1.05);
-    }
+  .btn {
+    position: absolute;
+    background: none;
+    color: white;
+    font-size: 1.4rem;
+    padding: 1.2rem 1.5rem;
+    opacity: 0;
+    width: 60%;
+    cursor: pointer;
+
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid white;
   }
 
   .title {
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 500;
     padding: 2rem 0 1rem 0;
   }
