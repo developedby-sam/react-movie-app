@@ -33,7 +33,10 @@ function App() {
             />
           }
         />
-        <Route path="/favourite" element={<Favouritepage fav={fav} />} />
+        <Route
+          path="/favourite"
+          element={<Favouritepage fav={fav} setFav={setFav} />}
+        />
       </Routes>
     </div>
   );

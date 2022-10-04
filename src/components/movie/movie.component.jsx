@@ -24,6 +24,7 @@ const Movie = ({ movie, fav, setFav, isFavSection }) => {
         onClick={() => {
           if (isFavSection) {
             handleRemoveMovie(movie);
+            console.log("clicked");
           } else {
             handleAddMovie(movie);
           }
