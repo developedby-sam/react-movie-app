@@ -1,11 +1,19 @@
 import React from "react";
 import "./movie.styles.scss";
 
-const Movie = ({ movie, fav, setFav }) => {
+const Movie = ({ movie, fav, setFav, isFavSection }) => {
   const { Title, Poster, Year } = movie;
-  const handleClick = (movie) => {
+
+  const handleAddMovie = (movie) => {
     const newFav = fav.filter((movieItem) => movieItem.Title !== movie.Title);
     setFav([...newFav, movie]);
+    localStorage.setItem("fav", JSON.stringify([...newFav, movie]));
+  };
+
+  const handleRemoveMovie = (movie) => {
+    const newFav = fav.filter((movieItem) => movieItem.Title !== movie.Title);
+    setFav([...newFav]);
+    localStorage.setItem("fav", JSON.stringify([...newFav]));
   };
 
   return (
@@ -14,10 +22,18 @@ const Movie = ({ movie, fav, setFav }) => {
       <button
         className="btn"
         onClick={() => {
-          handleClick(movie);
+          if (isFavSection) {
+            handleRemoveMovie(movie);
+          } else {
+            handleAddMovie(movie);
+          }
         }}
       >
-        Add to favourite&nbsp;❤️
+        {isFavSection ? (
+          <span>Remove from favourite&nbsp;❤️</span>
+        ) : (
+          <span>Add to favourite&nbsp;❤️</span>
+        )}
       </button>
       <div className="title">{Title}</div>
       <div className="published-year">{Year}</div>

@@ -16,6 +16,11 @@
     }
     .btn {
       opacity: 1;
+      &:hover {
+        color: white;
+        border: 1px solid #64748b;
+        background-color: #1e293b;
+      }
     }
   }
 
@@ -31,18 +36,22 @@
 
   .btn {
     position: absolute;
-    background: none;
-    color: white;
-    font-size: 1.4rem;
-    padding: 1.2rem 1.5rem;
+    background: white;
+    color: #1e293b;
+    padding: 1.5rem 2rem;
     opacity: 0;
-    width: 60%;
+    width: 80%;
     cursor: pointer;
 
     bottom: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid white;
+    border: none;
+    border-radius: 3px;
+
+    span {
+      font-size: 1.4rem;
+    }
   }
 
   .title {

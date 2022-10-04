@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 // COMPONENTS
@@ -9,6 +9,13 @@ import Favouritepage from "./pages/favouritepage/favouritepage.component";
 function App() {
   const [fav, setFav] = useState([]);
   const [searchValue, setSearchValue] = useState("star wars");
+
+  useEffect(() => {
+    const favMovies = JSON.parse(localStorage.getItem("fav"));
+    if (favMovies) {
+      setFav(favMovies);
+    }
+  }, []);
 
   return (
     <div className="App">

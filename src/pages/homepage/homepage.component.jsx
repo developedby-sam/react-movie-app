@@ -24,7 +24,16 @@ const Homepage = ({ fav, setFav, searchValue }) => {
       <MovieDirectory movies={movies} fav={fav} setFav={setFav} />
       {/* FAVOURITE SECTION */}
       <h1>Favourites</h1>
-      {fav ? <MovieDirectory movies={fav} /> : ""}
+      {fav ? (
+        <MovieDirectory
+          movies={fav}
+          fav={fav}
+          setFav={setFav}
+          isFavSection={true}
+        />
+      ) : (
+        ""
+      )}
     </div>
   );
 };
